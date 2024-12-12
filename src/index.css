@@ -4,3 +4,11 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+:root{
+  --primary-color: #fa0001;
+  --secondary-color:#013396;
+  --ternary-color:#000000;
+}
+a{
+  text-decoration: none !important;
+}
