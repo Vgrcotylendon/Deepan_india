@@ -6,7 +6,7 @@ export default function Tabcontentbox({ title, description }) {
   return (
     <Maindiv>
         <Tabbox>
-            <Boxtitle>{title}</Boxtitle>
+            <Boxtitle >{title}</Boxtitle>
             <Boxpara>{description}</Boxpara>
             <Boxicon><FaChevronRight /></Boxicon>
           </Tabbox>
@@ -21,7 +21,8 @@ const Tabbox = styled.div`
   margin: 15px 0;
   cursor: pointer;
   transition: all 0.8s ease;
-  height: 360px;
+  height: 300px;
+  position: relative;
   &:hover {
     color: #013396;
   }
@@ -32,8 +33,8 @@ const Tabbox = styled.div`
 `;
 
 const Boxtitle = styled.h1`
-  font-size: 2.2em;
-  font-weight: 600;
+  font-size: 1.6em;
+  font-weight: 700;
   margin-bottom: 15px;
   padding: 0 10px;
   @media screen and (max-width: 600px){
@@ -48,7 +49,7 @@ const Boxtitle = styled.h1`
 `;
 
 const Boxpara = styled.p`
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: 400;
   margin-bottom: 15px;
   padding: 0 10px;
@@ -64,9 +65,15 @@ const Boxpara = styled.p`
 `;
 
 const Boxicon = styled.div`
-  border: 1px solid;
-  width: 25px;
-  padding: 5px;
-  border-radius: 6px;
-  margin-left: 10px;
+    border: 1px solid;
+    width: 20px;
+    padding: 2px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    @media screen and (max-width: 600px){
+      bottom: -10px;
+    left: 15px;
+    }
 `;

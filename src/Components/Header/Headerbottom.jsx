@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Deepalogo from "../../assets/logos/logo-deepan.png";
 import Container from "react-bootstrap/Container";
 import { FaSearch } from "react-icons/fa";
+import { FaAngleDown } from "react-icons/fa";
 
 const Header = styled.header`
   position: sticky;
@@ -10,7 +11,8 @@ const Header = styled.header`
   background: #fff;
   width: 100%;
   z-index: 2;
-  
+ 
+  }
 `;
 
 const MyContainer = styled.div`
@@ -27,24 +29,23 @@ const LogoContainer = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 35%;
+  width: 30%;
 `;
 
 const NavBtn = styled.div`
   display: flex;
+
   @media (max-width: 920px) {
-    position: fixed;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: calc(100vh - 3rem);
-    top: 7rem;
+    align-items: flex-start;
+    position: absolute;
+    top: 100%;
     left: 0;
     width: 100%;
-    background-color: #fff;
-    //background: linear-gradient(90deg, rgba(250,0,1,1) 1%, rgba(0,0,0,0.7147233893557423) 54%, rgba(7,49,159,1) 97%);
-    transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(100%)")};
-    transition: transform 0.5s ease-in-out;
+    background-color: white;
+    transform: ${({ isOpen }) => (isOpen ? "translateY(0)" : "translateY(-100%)")};
+    transition: transform 0.3s ease-in-out;
+    z-index: 10;
   }
 `;
 
@@ -56,50 +57,41 @@ const NavLinks = styled.ul`
 
   @media (max-width: 920px) {
     flex-direction: column;
-    align-items: center;
+    width: 100%;
   }
 `;
 
 const NavLink = styled.li`
   position: relative;
+  color: #000;
+  padding: 0 0.8rem;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  transition: 0.5s;
+  cursor: pointer;
 
-  a {
-    line-height: 3rem;
-    color: #07319f;
-    padding: 0 0.8rem;
-    letter-spacing: 1px;
-    font-size: 1.3rem;
-    text-decoration: none;
-    transition: 0.5s;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-
-    @media screen and (max-width: 900px){
-    font-size: 16px;
-    }
+  &:hover {
+    transform: scale(1);
   }
-   
+
+  @media (max-width: 920px) {
+    width: 100%;
+    padding: 1rem;
+    text-align: left;
+  }
 `;
 
 const Dropdown = styled.div`
   position: absolute;
-  top: 100%;
+  top: 40px;
   left: 0;
-  width: 10rem;
+  width: 15rem;
   background-color: #fff;
-  opacity: 0;
-  transform: translateY(10px);
-  pointer-events: none;
-  transition: 0.5s;
+  opacity: ${({ show }) => (show ? 1 : 0)};
+  transform: ${({ show }) => (show ? "translateY(0)" : "translateY(5px)")};
+  pointer-events: ${({ show }) => (show ? "auto" : "none")};
+  transition: opacity 0.3s, transform 0.3s;
   z-index: 10;
-
-  ${NavLink}:hover & {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
 
   ul {
     list-style: none;
@@ -107,18 +99,26 @@ const Dropdown = styled.div`
     padding: 0;
 
     li {
-      a {
-        display: block;
-        padding: 0.5rem 1rem;
-        color: #07319f;
-        background: #d5d5d9;
-        transition: 0.3s;
+      display: block;
+      font-size: 0.7rem;
+      padding: 0.5rem 1rem;
+      color: #000;
+      background: #fff;
+      transition: 0.3s;
 
-        &:hover {
-          background: #d5d5d9;
-        }
+      &:hover {
+        color: #fff;
+        background-color: #013396;
+        border-top: 5px solid blue;
       }
     }
+  }
+
+  @media (max-width: 920px) {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
 `;
 
@@ -153,7 +153,20 @@ const Hamburger = styled.div`
 `;
 
 const HeaderBottom = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [visibleDropdown, setVisibleDropdown] = useState(null);
+  const [isOpen, setIsOpen] = useState(false); // Added state for mobile menu
+  let hoverTimeout;
+
+  const handleMouseEnter = (index) => {
+    clearTimeout(hoverTimeout);
+    setVisibleDropdown(index);
+  };
+
+  const handleMouseLeave = () => {
+    hoverTimeout = setTimeout(() => {
+      setVisibleDropdown(null);
+    }, 300);
+  };
 
   return (
     <Header>
@@ -169,68 +182,71 @@ const HeaderBottom = () => {
           </Hamburger>
           <NavBtn isOpen={isOpen}>
             <NavLinks>
-              <NavLink>
-                <a href="#">Home</a>
-              </NavLink>
-              <NavLink>
-                <a href="#">About</a>
-              </NavLink>
-              <NavLink>
-                <a href="#">Projects</a>
-              </NavLink>
-              <NavLink>
-                <a href="#">Services</a>
-              </NavLink>
-              <NavLink>
-                <a href="#">
-                  Menu 1
-                </a>
-                <Dropdown>
+              <NavLink
+                onMouseEnter={() => handleMouseEnter(0)}
+                onMouseLeave={handleMouseLeave}
+              >
+                Who We Serve <FaAngleDown />
+                <Dropdown show={visibleDropdown === 0}>
                   <ul>
-                    <li>
-                      <a href="#">Link 1</a>
-                    </li>
-                    <li>
-                      <a href="#">Link 2</a>
-                    </li>
+                    <li>Biopharmaceuticals</li>
+                    <li>Emerging Biotech</li>
+                    <li>Medical Devices</li>
                   </ul>
                 </Dropdown>
               </NavLink>
-              <NavLink>
-                <a href="#">
-                  Menu 2
-                </a>
-                <Dropdown>
+              <NavLink
+                onMouseEnter={() => handleMouseEnter(1)}
+                onMouseLeave={handleMouseLeave}
+              >
+                What We Do <FaAngleDown />
+                <Dropdown show={visibleDropdown === 1}>
                   <ul>
-                    <li>
-                      <a href="#">Link 1</a>
-                    </li>
-                    <li>
-                      <a href="#">Link 2</a>
-                    </li>
+                  <li>Enterprise Commercial Solutions</li>
+                  <li>Enterprise Medical Solutions</li>
+                  <li>Enterprise Clinical Solutions</li>
+                  <li>Omnichannel Activation Solutions</li>
+                  <li>Generative AI-Powered Commercialization</li>
+                  <li>Connected Commercial</li>
+                  <li>Connected Content Ecosystemx</li>
+                  <li>Connected Content Ecosystem</li>
+                  <li>Agency Of Scale</li>
+                  <li>NEXT Technology Platforms</li>
                   </ul>
                 </Dropdown>
               </NavLink>
-              {/* <NavLink>
-                <a href="#">
-                  Menu 3
-                </a>
-                <Dropdown>
+              <NavLink
+                onMouseEnter={() => handleMouseEnter(2)}
+                onMouseLeave={handleMouseLeave}
+              >
+                How We Deliver <FaAngleDown />
+                <Dropdown show={visibleDropdown === 2}>
                   <ul>
-                    <li>
-                      <a href="#">Link 1</a>
-                    </li>
-                    <li>
-                      <a href="#">Link 2</a>
-                    </li>
+                  <li>Consulting</li>
+                  <li>Centers of Excellence</li>
+                  <li>Tech-Led GCC Capabilities</li>
+                  <li>Development and Co-Commercialization</li>
                   </ul>
                 </Dropdown>
-              </NavLink> */}
-              <NavLink>
-                <a href="#">Contact</a>
               </NavLink>
-              <NavLink>
-                <a href="#"><FaSearch /></a>
+              <NavLink
+                onMouseEnter={() => handleMouseEnter(3)}
+                onMouseLeave={handleMouseLeave}
+              >
+                What We Think <FaAngleDown />
+                <Dropdown show={visibleDropdown === 3}>
+                  <ul>
+                  <li>Blogs</li>
+                  <li>Videos</li>
+                  <li>Reports</li>
+                  <li>Case Studies</li>
+                  <li>Indegene Digital Summit</li>
+                  <li>Industry Councils</li>
+                  </ul>
+                </Dropdown>
+              </NavLink>
+              <NavLink className="search">
+                <FaSearch />
               </NavLink>
             </NavLinks>
           </NavBtn>

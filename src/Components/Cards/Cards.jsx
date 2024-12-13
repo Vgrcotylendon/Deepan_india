@@ -43,10 +43,14 @@ export default function Cards({cardImg, cardTitle, cardText}) {
     font-weight: 900;
     font-size: 26px;
 
+       @media screen and (max-width: 600px) {
+  font-size: 22px ;
+
+} 
+
       @media (min-width: 768px) and (max-width: 1024px) {
-  font-size: 18px ;
-  
-}
+  font-size: 16px ;
+
 } 
  `;  
  const CardImg =styled.div`

@@ -6,12 +6,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function Header() {
+function Header() {  
   return (
-    <div>
-      <Navbar expand="lg" className="bg-body-tertiary my-topheader">
+    <Topheader>
+      <Navbar expand="lg" className=" my-topheader">
         <Container>
-            <Navbar.Brand href="#home">Deepan India every where</Navbar.Brand>
+            <h6> #Deepan India </h6>
+            
             <Topmenuitem>
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto d-flex align-items-center">
@@ -37,7 +38,7 @@ function Header() {
             </Topmenuitem>
         </Container>
         </Navbar>
-    </div>
+       </Topheader>
   )
 }
 
@@ -45,10 +46,29 @@ export default Header
 
 const Topmenuitem = styled.div`
 
+.
+`;
+const Topheader = styled.div`
+  background-color:#f6f6f6;
+  h6{
+    font-weight: 800;
+    margin: 0;
+  }
+  a{
+      font-size: 14px;
+      padding: 0;
+    }
+     .dropdown-menu {
+        padding: 10px 15px;
+    }
 `;
 const Btntopheader = styled.button`
-  padding: 10px 35px;
-  border: 1px solid #fa0001;
+  padding: 6px 15px;
+  border: 1px solid #013396;
   background-color: #fff;
+  font-size: 14px;
+  @media screen and (max-width: 600px){
+    display: none;
+  }
   `;
 

@@ -1,6 +1,7 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { IoArrowForwardSharp } from "react-icons/io5";
+import styled from "styled-components";
 
 export const SlideShowBar = ({ Images = [] }) => {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -8,22 +9,22 @@ export const SlideShowBar = ({ Images = [] }) => {
 
   const slidesText = [
     {
-      subtitle: "Deepan Digital Summit 2024",
-      title: "Rethinking MLR: Expert <br/> Perspectives Revealed",
+      subtitle: "Deepan Digital 2024",
+      title: "Empowering Financial Futures with Innovation and Trust",
       description:
-        "Experts from Johnson & Johnson, UCB, and Takeda Oncology <br/> explore new ways to make MLR faster and smarter",
+        "To provide innovative and customized financial solutions that empower individuals and businesses to achieve financial freedom",
     },
     {
-      subtitle: "Commercial",
-      title: "Deepan Announces <br/> New Center in Hyderabad",
+      subtitle: "Understanding financial jargon",
+      title: "Deepan Announces <br/> Expert Financial Advisors",
       description:
-        "Enables life sciences companies to modernize and transform <br/> their commercial, medical and clinical operations",
+        "Your trusted partner in investments, wealth management, and financial planning.",
     },
     {
-      subtitle: "Omnichannel",
-      title: "Redefining HCP Engagement",
+      subtitle: "Beginner Investment Options",
+      title: "Personal Budgeting Toolss",
       description:
-        "Joint report from Deepan and IQVIA lays out a blueprint <br/> for omnichannel excellence in the pharmaceutical industry",
+        "To be a leader in the financial services industry, renowned for trust, innovation, and client-centric solutions",
     },
   ];
 
@@ -53,6 +54,8 @@ export const SlideShowBar = ({ Images = [] }) => {
   };
 
   return (
+    <Slidersec>
+      <Slidersecinner></Slidersecinner>
     <Box
       sx={{
         display: "flex",
@@ -60,7 +63,6 @@ export const SlideShowBar = ({ Images = [] }) => {
         width: "100%",
         height: "100vh",
         position: "relative",
-        zIndex: 0,
       }}
     >
       {Images.map((image, index) => (
@@ -91,7 +93,7 @@ export const SlideShowBar = ({ Images = [] }) => {
               right: "15%",
               color: "white",
               textAlign: "left",
-              zIndex: 2,
+              zIndex:1,
             }}
           >
             <Typography
@@ -99,8 +101,9 @@ export const SlideShowBar = ({ Images = [] }) => {
                 fontSize: "18px",
                 fontWeight: "bold",
                 mb: 1,
+                zIndex:1,
                 '@media (max-width: 600px)': {
-                  fontSize: "16px",
+                  fontSize: "12px",
                 },
               }}
             >
@@ -108,11 +111,11 @@ export const SlideShowBar = ({ Images = [] }) => {
             </Typography>
             <Typography
               sx={{
-                fontSize: "36px",
+                fontSize: "46px",
                 fontWeight: "bold",
                 mb: 1,
                 '@media (max-width: 600px)': {
-                  fontSize: "26px",
+                  fontSize: "18px",
                 },
               }}
               dangerouslySetInnerHTML={{ __html: slidesText[index].title }}
@@ -121,6 +124,10 @@ export const SlideShowBar = ({ Images = [] }) => {
               sx={{
                 fontSize: "20px",
                 maxWidth: "800px",
+                zIndex:1,
+                '@media (max-width: 600px)': {
+                  fontSize: "16px",
+                },
                 mb: 2,
               }}
               dangerouslySetInnerHTML={{
@@ -140,7 +147,11 @@ export const SlideShowBar = ({ Images = [] }) => {
                   color: "#ffffff",
                   fontSize: "16px",
                   fontWeight: "bold",
+                  zIndex:1,
                   mr: 1,
+                  '@media (max-width: 600px)': {
+                  fontSize: "12px",
+                },
                 }}
               >
                 Read more
@@ -158,11 +169,12 @@ export const SlideShowBar = ({ Images = [] }) => {
       <Box
         sx={{
           position: "absolute",
-          bottom: "30%",
+          bottom: "25%",
           left: "15%",
           right: "15%",
           display: "flex",
           width: "10%",
+          zIndex: 1,
           gap: "5px",
           '@media (max-width: 600px)': {
             bottom: "5%",
@@ -183,6 +195,7 @@ export const SlideShowBar = ({ Images = [] }) => {
               position: "relative",
               overflow: "hidden",
               cursor: "pointer",
+              zIndex:1,  
             }}
           >
             <Box
@@ -197,5 +210,20 @@ export const SlideShowBar = ({ Images = [] }) => {
         ))}
       </Box>
     </Box>
+    </Slidersec>
   );
 };
+const Slidersec = styled.section`
+  position: relative;
+  z-index: 0; /* Ensure this is not negative */
+`;
+
+const Slidersecinner = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1; /* Keeps the gradient background behind other content */
+  background: linear-gradient(90deg, rgb(0 0 0 / 97%) 1%, rgb(0 0 0 / 0%) 96%);
+`;

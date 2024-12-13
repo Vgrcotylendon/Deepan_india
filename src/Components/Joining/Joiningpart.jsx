@@ -1,19 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container, Row, Col } from 'react-bootstrap'
-import Cardimg1 from '../../assets/cardimgs/card1.jpg'
+import Cardimg1 from '../../assets/landingImage3.jpg'
 
 export default function Joiningpart() {
   return (
     <Maindiv>
+
         <Container>
             <Row>
                 <Col md={7}>
                     <Joincontent>
-                        <h1>Join us to enable #FutureReadyHealthcare</h1>
+                        <h1>Personalized investment strategies for  minimizing risks.</h1>
                         <Joinbtns>
-                          <a href="#"><div>What We value</div></a>
-                          <a href="#"><div> Opportunities</div></a>
+                          <a href="#"><div>Explore Our Services</div></a>
+                          <a href="#"><div>Opportunities</div></a>
                         </Joinbtns>
                     </Joincontent>
                 </Col>
@@ -26,27 +27,48 @@ export default function Joiningpart() {
   )
 }
 const Maindiv = styled.section`
-     padding: 85px 0;
-    background: linear-gradient(90deg, rgb(250 0 1 / 26%) 1%, rgb(0 0 0 / 52%) 54%, rgb(7 49 159 / 18%) 97%), url(${Cardimg1});
+    padding: 85px 0;
+    background: linear-gradient(
+            90deg,
+            rgba(250, 0, 1, 0.26) 1%,
+            rgba(0, 0, 0, 0.52) 54%,
+            rgba(7, 49, 159, 0.18) 97%
+        ),
+        url(${Cardimg1});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 70vh;
     display: flex;
     align-items: center;
-    transition: 0.6s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.6s ease-in-out; /* Unified transition for transform */
+     filter: blur(1px); /* Initial state */
+
+    &:hover {
+        filter: blur(0); /* Apply blur effect on hover */
+    }
+    // transform: scale(1);
+
+    // &:hover {
+    //     transform: scale(1.1); /* Scales the entire section smoothly */
+    // }
 `;
+
+
 const Joincontent = styled.div`
 
 h1{
     color: #fff;
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 800;
     padding: 10px 0;
     margin: 0 0 15px 0;
 
     @media screen and (max-width: 600px){
-       font-size: 1.8rem;
+       font-size: 1.5rem;
     }
          @media (min-width: 768px) and (max-width: 1024px) {
   font-size: 1.6em;
@@ -64,7 +86,7 @@ const Joinbtns = styled.div`
     }
   div {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
     padding: 15px 10px;
     border: 1px solid;
@@ -80,7 +102,7 @@ const Joinbtns = styled.div`
     }
 
      @media screen and (max-width: 600px){
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: 15px 10px;
     margin: 10px 5px;
     width: 15em;

@@ -6,13 +6,10 @@ import { Container, Row, Col } from "react-bootstrap";
 const About = ({ content = [] }) => {
   const text = [
     {
-      title: "We are a digital-first, life sciences commercialization company",
+      title: "Your trusted partner in investments,  and financial planning.,",
       description: `
-        We help biopharmaceutical, emerging biotech and medical device companies develop products, get them to the market, and grow their impact 
-        through the life cycle in a more effective, efficient, and modern way. We bring together healthcare domain expertise, fit-for-purpose 
-        technology, and an agile operating model to provide a diverse range of solutions. These aim to deliver, amongst other outcomes, a 
-        personalized, scalable and omnichannel experience for patients and physicians. It’s what drives our team and our purpose to enable healthcare 
-        organizations to be future ready.
+        Ultra high net-worth individuals in India growing at 12% CAGR: Motilal Oswal. India's HNWI and UHNWI population is booming, with a 12% annual growth rate fueled by a strong economy and equity markets. However, organized wealth management penetration remains low, creating opportunities for expansion.
+        Ultra high net-worth individuals in India growing at 12% CAGR: Motilal Oswal. India's HNWI and UHNWI population is booming, with a 12% annual growth rate fueled by a strong economy and equity markets. However, organized wealth management penetration remains low, creating opportunities for expansion..
       `,
     },
   ];
@@ -25,6 +22,7 @@ const About = ({ content = [] }) => {
                     <Box
               sx={{
                 display: "flex",
+                fontFamily: "Nunito Sans", 
                 flexDirection: "column",
                 alignItems: "center",
                 position: "relative",
@@ -42,19 +40,27 @@ const About = ({ content = [] }) => {
                   <Typography
                     sx={{
                       fontSize: "30px",
+                      fontFamily: "Nunito Sans", 
                       fontWeight: "900",
                       color: "#231f20",
                       margin: " 10px 0",
-                      textAlign:"center",
+                      textAlign:"left",
+                      '@media (max-width: 600px)': {
+                        fontSize: "19px",
+                      },
                     }}
                   >
                     {text[index]?.title || "Title not found"}
                   </Typography>
                   <Typography
                     sx={{
-                      fontSize: "15px",
-                      color: "#000000",
-                      textAlign:"justify", 
+                      fontSize: "20px",
+                      fontFamily: "Nunito Sans", 
+                      color: "#000000", 
+                      '@media (max-width: 600px)': {
+                        fontSize: "14px",
+                        textAlign: "justify",
+                      },
                     }}
                   >
                     {text[index]?.description || "Description not found"}
@@ -73,4 +79,5 @@ export default About;
 
 const Maindiv = styled.section`
   padding: 75px 0;
+
 `;
