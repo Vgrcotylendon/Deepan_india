@@ -7,7 +7,7 @@ import Cardimg2 from '../../assets/landingImage2.jpg'
 import Cardimg3 from '../../assets/landingImage3.jpg'
 import Cards from './Cards';
 
-
+    
 export default function Cardpart() {
   return (
     <Maindiv>

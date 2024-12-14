@@ -16,7 +16,7 @@ export default function Joiningpart() {
                           <a href="#"><div>Explore Our Services</div></a>
                           <a href="#"><div>Opportunities</div></a>
                         </Joinbtns>
-                    </Joincontent>
+                    </Joincontent>     
                 </Col>
                 <Col md={5}>
                     

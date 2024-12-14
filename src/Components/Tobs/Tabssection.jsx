@@ -10,7 +10,7 @@ import Accordion from 'react-bootstrap/Accordion';
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
-  value: number;
+  value: number;       
 }
 
 function CustomTabPanel(props: TabPanelProps) {
