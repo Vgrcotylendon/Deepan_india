@@ -102,11 +102,15 @@ const Reviews = ({ reviewContent = [] }) => {
           <Typography
             sx={{
               fontSize: "100px",
+              fontFamily: "Nunito Sans",
               fontWeight: "bold",
               color: "#034EA2",
               lineHeight: "1",
               marginBottom: "-40px",
               textAlign: "left",
+              '@media (max-width: 600px)': {
+                    marginTop: "0",
+                },
             }}
           >
             “
@@ -115,11 +119,16 @@ const Reviews = ({ reviewContent = [] }) => {
           <Typography
             sx={{
               fontSize: "20px",
+              fontFamily: "Nunito Sans",
               fontWeight: "bold",
               color: "#231f20",
               marginBottom: "16px",
               whiteSpace: "pre-line",
               pl:"40px",
+              '@media (max-width: 600px)': {
+                    maxWidth: "100%", 
+                    fontSize:"1rem",
+                },
             }}
           >
             {review.title}
@@ -129,6 +138,7 @@ const Reviews = ({ reviewContent = [] }) => {
             sx={{
               fontSize: "100px",
               fontWeight: "bold",
+              fontFamily: "Nunito Sans",
               color: "#034EA2",
               lineHeight: "1",
               marginTop: "-20px",
@@ -143,6 +153,7 @@ const Reviews = ({ reviewContent = [] }) => {
             sx={{
               fontSize: "15px",
               fontWeight: "bold",
+              fontFamily: "Nunito Sans",
               color: "#231f20",
               marginBottom: "16px",
               whiteSpace: "pre-line",
@@ -157,6 +168,7 @@ const Reviews = ({ reviewContent = [] }) => {
             sx={{
               fontSize: "13px",
               color: "#231f20",
+              fontFamily: "Nunito Sans",
               marginBottom: "16px",
               whiteSpace: "pre-line",
               pl:"40px"
@@ -207,6 +219,6 @@ const Reviews = ({ reviewContent = [] }) => {
 
 export default Reviews;
 const Maindiv = styled.section`
-  padding: 75px 0;
+  padding: 60px 0;
   background-color: #f9f9f9;
 `;

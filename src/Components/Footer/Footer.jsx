@@ -1,57 +1,54 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container,Row,Col } from 'react-bootstrap';
-import { FaLinkedinIn } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
-
+import { FaYoutube } from "react-icons/fa6";
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 
 export default function Footer() {
-  return (
+  return (    
     <Footermain>
         <Container>
             <Row>
                 <Col md= {3} lg={3} xl={3} xs={12}>
                     <Foottitle>Who We Serve</Foottitle>
                     <Links>
-                        <li>Biopharmaceuticals</li>
-                        <li>Emerging Biotech</li>
-                        <li>Medical Devices</li>
+                        <li>Investment Solutions</li>
+                        <li>Retirement Planning</li>
+                        <li>Wealth Management</li>
+                        <li>Educational Resources</li>
                     </Links>
                 </Col>
                 <Col md= {3} lg={3} xl={3} xs={12}>
                     <Foottitle>What We Do</Foottitle>
                     <Links>
-                        <li>Enterprise Commercial Solutions</li>
-                        <li>Enterprise Medical Solutions</li>
-                        <li>Enterprise Clinical Solutions</li>
-                        <li>Omnichannel Activation Solutions</li>
-                        <li>Generative AI-Powered Commercialization</li>
-                        <li>Connected Commercial</li>
-                        <li>Connected Content Ecosystemx</li>
-                        <li>Connected Content Ecosystem</li>
-                        <li>Agency Of Scale</li>
-                        <li>NEXT Technology Platforms</li>
+                      <li>Mutual Funds</li>
+                      <li>Life Insurance</li>
+                      <li>REITs</li>
+                      <li>Estate Planning</li>
+                      <li>Tax Optimization Strategies</li>
                     </Links>
                 </Col>
                 <Col md= {3} lg={3} xl={3} xs={12}>
                     <Foottitle>How We Deliver</Foottitle>
                     <Links>
-                        <li>Consulting</li>
-                        <li>Centers of Excellence</li>
-                        <li>Tech-Led GCC Capabilities</li>
-                        <li>Development and Co-Commercialization</li>
+                    <li>Consulting</li>
+                      <li>Centers of Excellence</li>
+                      <li>Market Analysis</li>
+                      <li>Market Updates</li>
                     </Links>
                 </Col>
                 <Col md= {3} lg={3} xl={3} xs={12}>
                     <Foottitle>What We Think</Foottitle>
                     <Links>
-                        <li>Blogs</li>
-                        <li>Videos</li>
-                        <li>Reports</li>
-                        <li>Case Studies</li>
-                        <li>Indegene Digital Summit</li>
-                        <li>Industry Councils</li>
+                    <li>Blogs</li>
+                      <li>Videos</li>
+                      <li>Reports</li>
+                      <li>Direct contact form</li>
+                      <li>Schedule consultation</li>
                     </Links>
                 </Col>
             </Row>
@@ -69,6 +66,9 @@ export default function Footer() {
                     <Foottitle>Investor Relations</Foottitle>
                     <Links>
                         <li>News</li>
+                        <li>High-Net-Worth Advisory</li>
+                      <li>IRA/Roth IRA Management</li>
+                      <li>Business Insurance</li>
                     </Links>
                 </Col>
                 <Col md= {3} lg={3} xl={3} xs={12}>
@@ -92,13 +92,15 @@ export default function Footer() {
                         <li>Privacy Policy</li>
                         <li>Other Policies</li>
                         <li>Cookies</li>
-                        <li>Cookie Settings</li>
                     </Bottomlink>
                 </Col>
                 <Col md={2}>
                     <Bottomlink>
-                        <li><FaLinkedinIn /></li>
-                        <li><FaTwitter /></li>
+                    <li><FaLinkedin /></li>
+                    <li><FaTwitter /></li>
+                    <li><FaYoutube /> </li>
+                    <li><FaFacebookSquare /></li>
+                    <li><FaInstagramSquare /></li>
                     </Bottomlink>
                 </Col>
             </Row>

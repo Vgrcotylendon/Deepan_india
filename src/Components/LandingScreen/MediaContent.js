@@ -7,19 +7,19 @@ const MediaContent = () => {
 
   const text = [
     {
-      title: "Life sciences leaders trust us",
-      subTitle: "case study | Analytics",
+      title: "Insurance & Risk Management",
+      subTitle: "case study | Financial Services",
       description1: `
        Leading pharma improves speed to insights by 60% with advanced 
        social media analytics`,
       description2: `
        Eyecare leader successfully engages 60% of target audience with a
        brand relaunch`,
-      videoId: "dQw4w9WgXcQ" // Example YouTube video ID
+      videoId: "s1x71IUD7eQ?si=4bGMWBM_33rwG76j" // Example YouTube video ID
     },
     {
-      title: "Life sciences leaders trust us",
-      subTitle: "case study | Analytics",
+      title: "Long-term financial planning for life goals",
+      subTitle: "case study | Financial Planning",
       description3: `
       Global pharma optimizes online presence, transforms UX
       pharma
@@ -27,7 +27,7 @@ const MediaContent = () => {
       description4: `
        Large pharma optimizes patient screening and requirement, sees 3x
        jump in referred and consented rate`,
-      videoId: "J8O9_ugpDjE" // Another example YouTube video ID
+      videoId: "q5xnVSO9Kac?si=cm94Z2AZuDDVr7RP" // Another example YouTube video ID
     }
   ];
 
@@ -64,11 +64,15 @@ const MediaContent = () => {
           >
             <Typography
               sx={{
-                fontSize: "36px",
-                fontWeight: "bold",
+                fontSize: "3rem",
+                fontWeight: "800",
                 color: "#231f20",
+                fontFamily: "Nunito Sans",
                 marginBottom: "16px", 
                 textAlign: "left",
+                '@media (max-width: 600px)': {
+                  fontSize: "1.4rem",
+                },
                 
               }}
             >
@@ -76,40 +80,48 @@ const MediaContent = () => {
             </Typography>
             <Typography
               sx={{
-                fontSize: "15px",
+                fontSize: "1rem",
                 color: "#000000",
                 whiteSpace: "pre-line", 
                 textAlign: "left",
                 maxWidth: "80%", 
+                fontFamily: "Nunito Sans",
                 pl:"25px",
-
+                  '@media (max-width: 600px)': {
+                    maxWidth: "100%", 
+                },
               }}
             >
               {text[activeBarIndex].subTitle}
             </Typography>
             <Typography
               sx={{
-                fontSize: "15px",
+                fontSize: "1.1rem",
                 fontWeight: "bold",
                 color: "#000000",
-                whiteSpace: "pre-line", 
+                fontFamily: "Nunito Sans",
                 textAlign: "left",
                 maxWidth: "80%", 
-                pl:"25px",
+                padding:"10px 25px",
                 position:"relative",
+                '@media (max-width: 600px)': {
+                    maxWidth: "100%", 
+                    fontSize:"1rem"
+                },
                 "::before" :{
                     content: '""',
                     position:"absolute",
                     left:0,
-                    top:"25%",
-                    height:"100%",
+                    top:"-15px",
+                    height:"90px",
                     width:"8px",
-                    backgroundColor:"#d81b60",
+                    backgroundColor:"#fa0001",
                 },
                 ":hover": {
                   cursor: "pointer",
                   color: "#034EA2"
                 }
+                
               }}
             >
               {activeBarIndex === 0 
@@ -125,6 +137,7 @@ const MediaContent = () => {
             >
               <Divider 
                 sx={{ 
+                  border: "1px solid #333",
                   width: '100%', 
                   my: 2 
                 }} 
@@ -133,9 +146,10 @@ const MediaContent = () => {
             <br />
             <Typography
               sx={{
-                fontSize: "15px",
+                fontSize: "1rem",
                 color: "#000000",
                 whiteSpace: "pre-line", 
+                fontFamily: "Nunito Sans",
                 textAlign: "left",
                 maxWidth: "80%", 
                 pl:"25px",
@@ -146,23 +160,26 @@ const MediaContent = () => {
             </Typography>
             <Typography
               sx={{
-                fontSize: "15px",
+                fontSize: "1.1rem",
                 fontWeight: "bold",
-                color: "#000000",
-                whiteSpace: "pre-line", 
+                color: "#000000", 
                 textAlign: "left",
                 maxWidth: "80%", 
                 position:"relative",
-                pl:"25px",
+                padding:"10px 25px",
                 position:"relative",
+                '@media (max-width: 600px)': {
+                    maxWidth: "100%", 
+                    fontSize:"1rem"
+                },
                 "::before" :{
-                    content: '""',
-                    position:"absolute",
-                    left:0,
-                    top:"25%",
-                    height:"100%",
-                    width:"8px",
-                    backgroundColor:"#d81b60",
+                  content: '""',
+                  position:"absolute",
+                  left:0,
+                  top:"-15px",
+                  height:"90px",
+                  width:"8px",
+                  backgroundColor:"#fa0001",
                 },
                 ":hover": {
                   cursor: "pointer",
@@ -216,12 +233,11 @@ const MediaContent = () => {
               height: "350px",
               position: "relative",
               overflow: "hidden",
-              borderRadius: "8px",
             }}
           >
             <iframe
               width="100%"
-              height="100%"
+              height="350px"
               src={`https://www.youtube.com/embed/${text[activeBarIndex].videoId}`}
               title="YouTube video player"
               frameBorder="0"

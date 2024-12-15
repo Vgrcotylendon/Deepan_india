@@ -10,7 +10,7 @@ import Accordion from 'react-bootstrap/Accordion';
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
-  value: number;
+  value: number;       
 }
 
 function CustomTabPanel(props: TabPanelProps) {
@@ -41,17 +41,17 @@ const tabData = [
   {
     label: "Who We Serve",
     content: [
-      { title: "Consulting",
-         description: "Upgrade digital transformation and customer experience maturity with bespoke benchmarking and advisory services from proven industry experts" },
-      { title: "Enterprise Medical Solutions",
-         description: "Comply to regulations, expand market access, enhance medical affairs experience and drive productivity of pharmacovigilance operations" },
-      { title: "Enterprise Clinical Solutions", 
-        description: "Recruit patients for trials, manage operations and make the most of Real-World Data and Evidence (RWD, RWE)" },
-        { title: "Consulting",
-          description: "Upgrade digital transformation and customer experience maturity with bespoke benchmarking and advisory services from proven industry experts" },
-       { title: "Enterprise Medical Solutions",
+      { title: "Expert Financial Advisors",
+         description: "Comprehensive wealth management services for individuals and businesses" },
+      { title: "Tailored Investment Solutions",
+         description: "Personalized investment strategies for maximizing returns and minimizing risks." },
+      { title: "Secure and Transparent Processes", 
+        description: "Long-term financial planning for life goals like education, retirement, or property investments." },
+        { title: "24/7 Customer Support",
+          description: "Solutions for mergers, acquisitions, and corporate financial restructuring" },
+       { title: "Innovation",
           description: "Comply to regulations, expand market access, enhance medical affairs experience and drive productivity of pharmacovigilance operations" },
-       { title: "Enterprise Clinical Solutions", 
+       { title: "Innovation", 
          description: "Recruit patients for trials, manage operations and make the most of Real-World Data and Evidence (RWD, RWE)" },
     ],
   },
@@ -101,13 +101,13 @@ export default function Tabscontent() {
                   label={tab.label}
                   {...a11yProps(index)}
                   sx={{
-                    border: '1px solid blue',
+                    border: '1px solid #013396',
                     padding: '10px 30px',
                     margin: '0 10px',
-                    color: "blue",
+                    color: "#013396",
                     backgroundColor: 'transparent',
-                    fontSize: "22px",
-                    fontWeight: "700",
+                    fontSize: "20px",
+                    fontWeight: "800",
                     transition: "all 0.5s ease-in-out",
                     '&:hover': {
                       backgroundColor: '#013396',
@@ -163,6 +163,7 @@ export default function Tabscontent() {
 const Maindiv = styled.div`
   padding: 85px 0;
   background-color: #f7f7f7;
+  
 `;
 
 const Largescreentabs = styled.div`

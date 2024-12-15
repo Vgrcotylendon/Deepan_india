@@ -4,7 +4,7 @@ import { TextField, TextareaAutosize, Radio, RadioGroup, FormControlLabel, FormC
 import { IoIosRefresh } from 'react-icons/io';
 import { GiSpeaker } from 'react-icons/gi';
 import { Container,Row,Col } from 'react-bootstrap';
-
+import Cardimg1 from '../../assets/slider-img3.jpg'
 export default function Contact() {
   const [formData, setFormData] = useState({
     fullname: '',
@@ -74,7 +74,7 @@ export default function Contact() {
         <Container>
             <Row>
                 <Col md={12}>
-                    <Heading>Let’s partner for #FutureReadyHealthcare</Heading>
+                    <Heading>Let’s partner for #FutureReady Deepan India</Heading>
                 </Col>
             </Row>
             <form onSubmit={handleSubmit}>
@@ -102,7 +102,15 @@ export default function Contact() {
                             <TextField
                             className="my-3"
                             fullWidth
-                            label="Enter your Company Name"
+                            label="Enter your Mobie Number"
+                            name="companyName"
+                            value={formData.companyName}
+                            onChange={handleFormChange}
+                            />
+                            <TextField
+                            className="my-3"
+                            fullWidth
+                            label="Enter your intrested Company Name"
                             name="companyName"
                             value={formData.companyName}
                             onChange={handleFormChange}
@@ -111,7 +119,7 @@ export default function Contact() {
                     <Col md={6}>
                     <TextareaAutosize
                             className="my-3"
-                            minRows={9}
+                            minRows={12}
                             placeholder="Your message"
                             name="message"
                             value={formData.message}
@@ -136,7 +144,8 @@ export default function Contact() {
                             onChange={handleFormChange}
                         >
                             <FormControlLabel  className="my-2" value="Business Opportunity" control={<Radio />} label="Business Opportunity" />
-                            <FormControlLabel className="my-2" value="Media Opportunity" control={<Radio />} label="Media Opportunity" />
+                            <FormControlLabel className="my-2" value="Self Investments" control={<Radio />} label="Self Investments" />
+                            <FormControlLabel className="my-2" value="Mutual Funds" control={<Radio />} label="Mutual Funds" />
                         </RadioGroup>
                         </FormControl>
                     </Col>
@@ -182,7 +191,7 @@ export default function Contact() {
                 </Row>
                 <Row className='my-5'>
                     <Col md={4}>
-                        <Submitbtn type='submit'>Submit</Submitbtn>
+                        <Submitbtn type='submit'>Get Started Today</Submitbtn>
                     </Col>
                 </Row>          
             </form>  
@@ -208,6 +217,7 @@ const Heading = styled.h1`
 text-align: left;
   font-size: 34px;
   font-weight: bold;
+  fontFamily: "Nunito Sans",
   margin-bottom: 20px;
 
   @media screen and (max-width: 600px){
@@ -232,6 +242,7 @@ const CaptchaBox = styled.div`
 const CaptchaText = styled.div`
   font-size: 18px;
   font-weight: bold;
+  fontFamily: "Nunito Sans",
 `;
 
 const IconButton = styled.button`
@@ -245,6 +256,7 @@ const IconButton = styled.button`
 `;
 
 const Input = styled.input`
+fontFamily: "Nunito Sans",
   width: 100%;
   height: 45px;
   padding: 10px;
